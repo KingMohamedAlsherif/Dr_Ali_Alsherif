@@ -1,0 +1,7 @@
+<svg width="400" height="520" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="520" rx="24" fill="#0d0d0f" />
+  <rect x="40" y="60" width="320" height="400" rx="20" fill="#19191c" stroke="#c29b3e" stroke-width="2" />
+  <text x="60" y="160" fill="#f5f5f4" font-family="Arial" font-size="28" font-weight="600">AI Cataloging</text>
+  <text x="60" y="210" fill="#c29b3e" font-family="Arial" font-size="16">Designing Smart Metadata Pipelines</text>
+  <text x="60" y="420" fill="#a1a1aa" font-family="Arial" font-size="14">Digital Knowledge Hub</text>
+</svg>
