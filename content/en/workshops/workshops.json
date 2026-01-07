@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Digital Repository Architecture Bootcamp",
+    "audience": "Library leaders and IT teams",
+    "duration": "2 days",
+    "topics": ["DSpace", "Preservation workflows", "Discovery UX"],
+    "language": "English",
+    "venue": "University Library System"
+  },
+  {
+    "title": "Metadata Standards in Practice",
+    "audience": "Cataloging specialists",
+    "duration": "1 day",
+    "topics": ["MARC21", "RDA", "Authority control"],
+    "language": "English",
+    "venue": "National Library"
+  },
+  {
+    "title": "AI for Knowledge Services",
+    "audience": "Knowledge managers",
+    "duration": "Half day",
+    "topics": ["AI search", "Taxonomy design", "Automation"],
+    "language": "English"
+  }
+]

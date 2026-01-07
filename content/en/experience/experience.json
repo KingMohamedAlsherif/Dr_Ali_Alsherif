@@ -1,0 +1,41 @@
+[
+  {
+    "role": "Director of Library & Knowledge Services",
+    "org": "Government Knowledge Authority",
+    "location": "Dubai, UAE",
+    "startDate": "2021",
+    "endDate": "Present",
+    "highlights": [
+      "Led the digital knowledge hub roadmap aligning AI services, repository modernization, and governance standards.",
+      "Implemented enterprise-wide metadata governance using MARC21, RDA, and authority control workflows.",
+      "Designed a knowledge analytics dashboard to track research impact and content reuse across faculties."
+    ],
+    "tags": ["Knowledge Governance", "Digital Repositories", "AI"]
+  },
+  {
+    "role": "Head of Digital Library Transformation",
+    "org": "University Library System",
+    "location": "Cairo, Egypt",
+    "startDate": "2016",
+    "endDate": "2021",
+    "highlights": [
+      "Migrated legacy repositories to DSpace with preservation workflows and OAI-PMH interoperability.",
+      "Launched digitization initiatives covering rare collections and institutional archives.",
+      "Built staff capability programs in digital preservation, cataloging automation, and user experience."
+    ],
+    "tags": ["Digital Preservation", "Cataloging", "Digital Repositories"]
+  },
+  {
+    "role": "Knowledge Management Lead",
+    "org": "Academic Research Center",
+    "location": "Dubai, UAE",
+    "startDate": "2012",
+    "endDate": "2016",
+    "highlights": [
+      "Developed KM strategy linking research outputs to institutional KPIs and stakeholder reporting.",
+      "Standardized metadata schemas and implemented controlled vocabularies for multidisciplinary content.",
+      "Delivered 30+ workshops on information literacy, data stewardship, and repository best practices."
+    ],
+    "tags": ["Knowledge Governance", "Cataloging", "AI"]
+  }
+]

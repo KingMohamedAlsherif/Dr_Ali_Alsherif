@@ -1,0 +1,7 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0a0a0a" />
+  <rect x="80" y="80" width="1040" height="470" rx="40" fill="#111111" stroke="#c29b3e" stroke-width="2" />
+  <text x="120" y="220" fill="#f5f5f4" font-family="Arial, sans-serif" font-size="54" font-weight="600">Digital Knowledge Hub</text>
+  <text x="120" y="290" fill="#c29b3e" font-family="Arial, sans-serif" font-size="28">Knowledge Management • Digital Libraries • AI</text>
+  <text x="120" y="380" fill="#a1a1aa" font-family="Arial, sans-serif" font-size="24">Ali Fathy Abdelrehim</text>
+</svg>

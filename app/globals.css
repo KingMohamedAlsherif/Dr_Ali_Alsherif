@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: 255 255 255;
+  --foreground: 10 10 10;
+  --muted: 245 245 244;
+  --muted-foreground: 88 88 88;
+  --card: 255 255 255;
+  --border: 231 229 228;
+  --accent: 194 155 62;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: 8 8 10;
+  --foreground: 244 244 245;
+  --muted: 24 24 27;
+  --muted-foreground: 161 161 170;
+  --card: 15 15 19;
+  --border: 39 39 42;
+  --accent: 194 155 62;
+}
+
+body {
+  @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
+}
+
+.pattern-overlay {
+  @apply absolute inset-0 bg-arabesque-pattern opacity-30 mix-blend-multiply pointer-events-none;
+}
+
+.focus-outline {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--background))];
+}
+
+.prose a {
+  @apply text-sand-600 no-underline hover:underline;
+}
+
+.react-pdf__Page__canvas {
+  @apply mx-auto;
+  width: 100% !important;
+  height: auto !important;
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "AI-Assisted Cataloging Pipelines for Academic Libraries",
+    "type": "Paper",
+    "venue": "International Journal of Digital Libraries",
+    "date": "2023",
+    "abstract": "A framework for combining machine learning with MARC21 validation to improve cataloging accuracy at scale.",
+    "links": [
+      { "label": "Summary", "url": "https://example.com" }
+    ]
+  },
+  {
+    "title": "Designing Knowledge Governance for Hybrid Repositories",
+    "type": "Talk",
+    "venue": "Arab Knowledge Management Summit",
+    "date": "2022",
+    "abstract": "A governance model integrating digital preservation, access policy, and stakeholder alignment.",
+    "links": [
+      { "label": "Slides", "url": "https://example.com" }
+    ]
+  },
+  {
+    "title": "Measuring Research Impact Through Digital Repository Analytics",
+    "type": "Paper",
+    "venue": "Library Innovation Forum",
+    "date": "2021",
+    "abstract": "Evaluation of analytics dashboards that connect repository usage with institutional KPIs.",
+    "links": [
+      { "label": "Read", "url": "https://example.com" }
+    ]
+  }
+]
