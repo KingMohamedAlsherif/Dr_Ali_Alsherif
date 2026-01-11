@@ -18,6 +18,10 @@ export async function GET(request: Request, { params }: { params: { slug: string
   }
 
   const filePath = getBookFilePath(book.fileRef);
+  if (!fs.existsSync(filePath)) {
+    return NextResponse.json({ error: 'File not available' }, { status: 404 });
+  }
+
   const stat = fs.statSync(filePath);
   const stream = fs.createReadStream(filePath);
 

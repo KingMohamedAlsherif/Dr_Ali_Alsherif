@@ -31,9 +31,9 @@ export function PublicationsSection({ items, lang }: { items: Publication[]; lan
             key={itemType}
             type="button"
             onClick={() => setType(itemType as typeof type)}
-            className={`rounded-full border px-3 py-1 text-xs transition ${
+            className={`rounded-full border px-4 py-2 text-xs font-medium transition focus-outline ${
               type === itemType
-                ? 'border-sand-400 bg-sand-500 text-black'
+                ? 'border-transparent bg-accent text-accent-foreground'
                 : 'border-[rgb(var(--border))] text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -47,7 +47,7 @@ export function PublicationsSection({ items, lang }: { items: Publication[]; lan
           </button>
         ))}
       </div>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div>
         {filtered.map((item) => (
           <PublicationItem key={item.title} item={item} />
         ))}

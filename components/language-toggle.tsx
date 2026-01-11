@@ -23,7 +23,7 @@ export function LanguageToggle() {
             href={href}
             className={cn(
               'rounded-full px-3 py-1 transition',
-              isActive ? 'bg-sand-500 text-black' : 'text-muted-foreground hover:text-foreground'
+              isActive ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:text-foreground'
             )}
           >
             {option.label}

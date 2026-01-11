@@ -1,36 +1,45 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import type { CaseStudy } from '@/lib/content-types';
+import { cn } from '@/lib/utils';
 
 export function CaseStudyCard({ item, lang }: { item: CaseStudy; lang: 'en' | 'ar' }) {
   return (
-    <Card className="group overflow-hidden hover:shadow-glow">
-      <div className="relative h-40">
+    <Link
+      href={`/${lang}/projects/${item.slug}`}
+      className={cn(
+        'group flex h-full flex-col overflow-hidden rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] transition-all',
+        'hover:-translate-y-1 hover:shadow-lift focus-outline'
+      )}
+    >
+      <div className="relative aspect-[4/3] overflow-hidden bg-[rgb(var(--muted))]">
         <Image
           src={item.images[0]}
           alt={item.title}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <CardContent className="space-y-4">
-        <div>
-          <p className="text-xs uppercase text-muted-foreground">{item.year}</p>
-          <h3 className="text-lg font-semibold">{item.title}</h3>
+      <div className="flex flex-1 flex-col gap-4 p-6">
+        <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-muted-foreground">
+          <span>{item.year}</span>
+          <span>{item.role}</span>
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
           <p className="text-sm text-muted-foreground">{item.overview}</p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-auto flex flex-wrap gap-2">
           {item.standardsAndTools.slice(0, 3).map((tool) => (
             <Badge key={tool}>{tool}</Badge>
           ))}
         </div>
-        <Link href={`/${lang}/projects/${item.slug}`} className="text-sm font-medium text-sand-600">
+        <span className="text-sm font-medium text-accent">
           {lang === 'ar' ? 'عرض الدراسة' : 'View case study'}
-        </Link>
-      </CardContent>
-    </Card>
+        </span>
+      </div>
+    </Link>
   );
 }

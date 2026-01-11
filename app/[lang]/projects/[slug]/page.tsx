@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import { SectionHeader } from '@/components/section-header';
 import { RepositoryBadge } from '@/components/repository-badge';
 import { StandardsBadge } from '@/components/standards-badge';
-import { renderMdx, Prose } from '@/lib/mdx';
+import { Prose } from '@/components/prose';
+import { renderMdx } from '@/lib/mdx';
 import { getCaseStudies, getCaseStudyBySlug } from '@/lib/content';
 
 export async function generateStaticParams() {
@@ -24,10 +25,14 @@ export default async function CaseStudyPage({
 
     return (
       <div className="space-y-10">
-        <SectionHeader title={meta.title} description={meta.overview} />
+        <SectionHeader
+          eyebrow={params.lang === 'ar' ? 'دراسة حالة' : 'Case study'}
+          title={meta.title}
+          description={meta.overview}
+        />
 
-        <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
-          <div className="space-y-6">
+        <div className="grid gap-10 lg:grid-cols-[2fr,1fr]">
+          <div className="space-y-8">
             <div>
               <h3 className="text-lg font-semibold">{params.lang === 'ar' ? 'المشكلة' : 'Problem'}</h3>
               <p className="text-sm text-muted-foreground">{meta.problem}</p>
@@ -49,9 +54,9 @@ export default async function CaseStudyPage({
               </ul>
             </div>
           </div>
-          <aside className="space-y-6 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-6">
+          <aside className="space-y-6 rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-6">
             <div>
-              <p className="text-xs uppercase text-muted-foreground">{meta.year}</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{meta.year}</p>
               <h4 className="text-base font-semibold">{meta.role}</h4>
             </div>
             <div>
@@ -64,7 +69,7 @@ export default async function CaseStudyPage({
             </div>
             <div>
               <h5 className="text-sm font-semibold">{params.lang === 'ar' ? 'روابط' : 'Links'}</h5>
-              <div className="mt-3 space-y-2 text-sm text-sand-600">
+              <div className="mt-3 space-y-2 text-sm text-accent">
                 {meta.links.map((link) => (
                   <a key={link.url} href={link.url} className="block hover:underline">
                     {link.label}
@@ -73,8 +78,7 @@ export default async function CaseStudyPage({
               </div>
             </div>
             <div>
-              <h5 className="text-sm font-semibold">{params.lang === 'ar' ? 'مستودعات' : 'Repositories'}
-              </h5>
+              <h5 className="text-sm font-semibold">{params.lang === 'ar' ? 'مستودعات' : 'Repositories'}</h5>
               <div className="mt-3 flex flex-wrap gap-2">
                 {['DSpace', 'Fedora', 'Koha'].map((repo) => (
                   <RepositoryBadge key={repo} label={repo} />
