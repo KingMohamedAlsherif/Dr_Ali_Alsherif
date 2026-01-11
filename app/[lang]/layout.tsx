@@ -2,6 +2,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { buildMetadata } from '@/lib/metadata';
 import { getSearchIndex } from '@/lib/search';
+import { Container } from '@/components/container';
 
 export async function generateMetadata({ params }: { params: { lang: 'en' | 'ar' } }) {
   return buildMetadata(params.lang);
@@ -18,13 +19,11 @@ export default async function LangLayout({
   const isArabic = params.lang === 'ar';
 
   return (
-    <div
-      className={isArabic ? 'font-arabic' : 'font-sans'}
-      dir={isArabic ? 'rtl' : 'ltr'}
-      lang={params.lang}
-    >
+    <div className={isArabic ? 'font-arabic' : 'font-sans'} dir={isArabic ? 'rtl' : 'ltr'} lang={params.lang}>
       <Header lang={params.lang} searchItems={searchItems} />
-      <main className="mx-auto max-w-6xl px-4 py-12">{children}</main>
+      <main className="pt-20 pb-12">
+        <Container>{children}</Container>
+      </main>
       <Footer lang={params.lang} />
     </div>
   );

@@ -20,12 +20,12 @@ export function ProjectsSection({ items, lang }: { items: CaseStudy[]; lang: 'en
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <Input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder={lang === 'ar' ? 'ابحث في المشاريع' : 'Search projects'}
-          className="md:max-w-xs"
+          className="lg:max-w-xs"
         />
         <TagFilterBar selected={selectedTags} onChange={setSelectedTags} />
       </div>

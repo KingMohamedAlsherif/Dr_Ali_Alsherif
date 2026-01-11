@@ -2,5 +2,16 @@ node_modules
 .next
 .out
 dist
-.env.local
+build
+*.log
 .env
+.env.*
+
+content/books/files/*.pdf
+content/books/files/*.epub
+content/books/files/*.mobi
+
+public/images/*.jpg
+public/images/*.jpeg
+public/images/*.png
+public/images/*.webp

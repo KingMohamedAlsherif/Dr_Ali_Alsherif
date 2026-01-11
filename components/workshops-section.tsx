@@ -20,7 +20,7 @@ export function WorkshopsSection({ items, lang }: { items: Workshop[]; lang: 'en
         placeholder={lang === 'ar' ? 'ابحث في ورش العمل' : 'Search workshops'}
         className="md:max-w-xs"
       />
-      <div className="grid gap-6 md:grid-cols-2">
+      <div>
         {filtered.map((item) => (
           <WorkshopCard key={item.title} item={item} />
         ))}

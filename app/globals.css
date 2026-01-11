@@ -1,43 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   color-scheme: light;
-  --background: 255 255 255;
-  --foreground: 10 10 10;
-  --muted: 245 245 244;
-  --muted-foreground: 88 88 88;
-  --card: 255 255 255;
-  --border: 231 229 228;
-  --accent: 194 155 62;
+  --font-sans: 'Inter';
+  --font-arabic: 'IBM Plex Sans Arabic';
+  --background: 249 247 242;
+  --foreground: 17 20 24;
+  --muted: 242 239 232;
+  --muted-foreground: 99 101 107;
+  --card: 252 250 246;
+  --border: 229 223 213;
+  --accent: 22 78 64;
+  --accent-foreground: 248 246 241;
 }
 
 .dark {
   color-scheme: dark;
-  --background: 8 8 10;
-  --foreground: 244 244 245;
-  --muted: 24 24 27;
-  --muted-foreground: 161 161 170;
-  --card: 15 15 19;
-  --border: 39 39 42;
-  --accent: 194 155 62;
+  --background: 12 13 15;
+  --foreground: 242 242 244;
+  --muted: 25 26 29;
+  --muted-foreground: 168 171 179;
+  --card: 18 19 23;
+  --border: 36 38 43;
+  --accent: 76 181 142;
+  --accent-foreground: 12 13 15;
 }
 
-body {
-  @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-.pattern-overlay {
-  @apply absolute inset-0 bg-arabesque-pattern opacity-30 mix-blend-multiply pointer-events-none;
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: radial-gradient(circle at top left, rgba(22, 78, 64, 0.08), transparent 45%),
+      radial-gradient(circle at top right, rgba(22, 78, 64, 0.06), transparent 40%);
+  }
+
+  .dark body {
+    background-image: radial-gradient(circle at top left, rgba(76, 181, 142, 0.12), transparent 45%),
+      radial-gradient(circle at top right, rgba(76, 181, 142, 0.08), transparent 40%);
+  }
+
+  a {
+    @apply text-foreground transition-colors;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-foreground;
+  }
 }
 
 .focus-outline {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--background))];
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+}
+
+.prose {
+  @apply max-w-none text-base leading-relaxed;
 }
 
 .prose a {
-  @apply text-sand-600 no-underline hover:underline;
+  @apply text-accent no-underline hover:underline;
 }
 
 .react-pdf__Page__canvas {

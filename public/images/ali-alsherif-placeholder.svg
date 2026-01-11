@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ali Alsherif portrait placeholder</title>
+  <desc id="desc">Portrait placeholder for Ali Alsherif. Replace with a local photo at public/images/ali-alsherif.jpg.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e5ede7" />
+      <stop offset="100%" stop-color="#f6f3ec" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="760" rx="48" fill="url(#bg)" />
+  <circle cx="320" cy="280" r="110" fill="#d7dfda" />
+  <rect x="150" y="410" width="340" height="220" rx="110" fill="#d7dfda" />
+  <text x="50%" y="90%" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#6b7280">
+    Replace with public/images/ali-alsherif.jpg
+  </text>
+</svg>

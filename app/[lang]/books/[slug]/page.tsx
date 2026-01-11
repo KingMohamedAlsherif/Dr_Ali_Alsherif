@@ -2,12 +2,12 @@ import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import { SectionHeader } from '@/components/section-header';
-import { renderMdx, Prose } from '@/lib/mdx';
-import { getBookBySlug, getBooks } from '@/lib/content';
+import { Prose } from '@/components/prose';
+import fs from 'fs';
+import { renderMdx } from '@/lib/mdx';
+import { getBookBySlug, getBookFilePath, getBooks } from '@/lib/content';
 
-const BookReader = dynamic(() => import('@/components/book-reader').then((mod) => mod.BookReader), {
-  ssr: false
-});
+const BookReader = dynamic(() => import('@/components/book-reader'), { ssr: false });
 
 export async function generateStaticParams() {
   const items = await getBooks('en');
@@ -21,6 +21,9 @@ export default async function BookPage({ params }: { params: { lang: 'en' | 'ar'
   try {
     const { meta, content } = await getBookBySlug(params.lang, params.slug);
     const mdxContent = await renderMdx(content);
+
+    const filePath = getBookFilePath(meta.fileRef);
+    const hasFile = fs.existsSync(filePath);
 
     return (
       <div className="space-y-10">
@@ -37,6 +40,12 @@ export default async function BookPage({ params }: { params: { lang: 'en' | 'ar'
             {params.lang === 'ar'
               ? 'هذا الكتاب يتطلب رمز وصول. أضف رمز الوصول في ملف البيئة BOOK_ACCESS_CODE لتفعيل القراءة.'
               : 'This book is gated. Add BOOK_ACCESS_CODE in your environment to enable access.'}
+          </div>
+        ) : !hasFile ? (
+          <div className="rounded-2xl border border-dashed border-[rgb(var(--border))] p-6 text-sm text-muted-foreground">
+            {params.lang === 'ar'
+              ? 'ملف الكتاب غير متوفر داخل المستودع. أضفه محليًا في content/books/files.'
+              : 'This book file is not included in the repo. Add it locally under content/books/files.'}
           </div>
         ) : (
           <div id="reader" className="space-y-4">

@@ -6,11 +6,11 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
+  'pdfjs-dist/build/pdf.worker.min.js',
   import.meta.url
 ).toString();
 
-export function BookReader({ slug, url, watermark }: { slug: string; url: string; watermark?: string }) {
+export default function BookReader({ slug, url, watermark }: { slug: string; url: string; watermark?: string }) {
   const [numPages, setNumPages] = useState(0);
   const [page, setPage] = useState(1);
   const [scale, setScale] = useState(1.0);
@@ -56,9 +56,9 @@ export function BookReader({ slug, url, watermark }: { slug: string; url: string
           </Button>
         </div>
       </div>
-      <div className="relative overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--muted))] p-4">
+      <div className="relative overflow-hidden rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--muted))] p-4">
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <p className="rotate-[-10deg] text-4xl font-semibold text-sand-400/20">
+          <p className="rotate-[-10deg] text-4xl font-semibold text-accent/20">
             {watermark ?? 'For reading on this site'}
           </p>
         </div>
