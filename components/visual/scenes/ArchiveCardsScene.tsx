@@ -5,19 +5,12 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import type { Group } from 'three';
 
-type Vec3 = [number, number, number];
-type EulerTuple = [number, number, number];
-type CardSpec = {
-  position: Vec3;
-  rotation: EulerTuple;
-};
-
-const CARD_SPECS: CardSpec[] = [
-  { position: [0, 0, 0], rotation: [0.05, -0.2, 0.02] },
-  { position: [0.12, 0.08, -0.08], rotation: [0.08, -0.12, -0.03] },
-  { position: [-0.1, -0.06, -0.16], rotation: [0.02, -0.05, 0.04] },
-  { position: [0.06, -0.14, -0.24], rotation: [0.06, 0.05, -0.02] },
-  { position: [-0.08, 0.16, -0.32], rotation: [-0.02, 0.1, 0.01] }
+const CARD_SPECS = [
+  { position: [0, 0, 0] as const, rotation: [0.05, -0.2, 0.02] as const },
+  { position: [0.12, 0.08, -0.08] as const, rotation: [0.08, -0.12, -0.03] as const },
+  { position: [-0.1, -0.06, -0.16] as const, rotation: [0.02, -0.05, 0.04] as const },
+  { position: [0.06, -0.14, -0.24] as const, rotation: [0.06, 0.05, -0.02] as const },
+  { position: [-0.08, 0.16, -0.32] as const, rotation: [-0.02, 0.1, 0.01] as const }
 ];
 
 const DEFAULT_PALETTE = {
@@ -73,7 +66,7 @@ function ArchiveCards({ reduceMotion }: { reduceMotion: boolean }) {
     }
   }, [invalidate, reduceMotion]);
 
-  useFrame(({ clock }: { clock: { getElapsedTime: () => number } }) => {
+  useFrame(({ clock }) => {
     if (!group.current) {
       return;
     }
