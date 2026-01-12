@@ -75,7 +75,7 @@ export default async function HomePage({ params }: { params: { lang: 'en' | 'ar'
                 <div className="absolute -inset-4 rounded-[32px] bg-accent/12" aria-hidden="true" />
                 <div className="relative overflow-hidden rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--surface))]">
                   <Image
-                    src="/images/ali-alsherif-placeholder.svg"
+                    src="/images/ali-alsherif-placeholder.jpeg"
                     alt={params.lang === 'ar' ? 'صورة علي الشريف' : 'Portrait of Ali Alsherif'}
                     width={640}
                     height={760}
