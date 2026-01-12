@@ -1,32 +1,16 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { Suspense, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useInView } from '@/lib/useInView';
 import { usePrefersReducedMotion } from '@/lib/usePrefersReducedMotion';
+import { HeroFallbackVisual } from './HeroFallbackVisual';
 
-const ArchiveCardsScene = dynamic(
-  () => import('./scenes/ArchiveCardsScene').then((mod) => mod.ArchiveCardsScene),
-  { ssr: false }
-);
+type ThreeHeroImplType = ({ reduceMotion }: { reduceMotion: boolean }) => JSX.Element | null;
 
-function StaticOrnament() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 240 320"
-      className="h-full w-full text-accent/40"
-      fill="none"
-    >
-      <rect x="28" y="22" width="184" height="276" rx="22" stroke="currentColor" strokeWidth="1" />
-      <rect x="42" y="40" width="156" height="240" rx="16" stroke="currentColor" strokeWidth="1" />
-      <path d="M70 98h100" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-      <path d="M70 140h100" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-      <path d="M70 182h72" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-      <circle cx="176" cy="188" r="6" stroke="currentColor" strokeWidth="1" />
-    </svg>
-  );
-}
+type ThreeHeroModule = {
+  ThreeHeroImpl: ThreeHeroImplType;
+  r3fAvailable: boolean;
+};
 
 function hasWebGLSupport() {
   if (typeof window === 'undefined') {
@@ -47,9 +31,14 @@ export function ThreeHero() {
   const prefersReducedMotion = usePrefersReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
   const [isLowPower, setIsLowPower] = useState(false);
+  const [webglSupported, setWebglSupported] = useState(false);
+  const [Impl, setImpl] = useState<ThreeHeroImplType | null>(null);
+  const [hasAttemptedLoad, setHasAttemptedLoad] = useState(false);
   const { ref, inView } = useInView<HTMLDivElement>({ rootMargin: '200px', threshold: 0.1 });
 
-  const webglSupported = useMemo(() => hasWebGLSupport(), []);
+  useEffect(() => {
+    setWebglSupported(hasWebGLSupport());
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined' || !('matchMedia' in window)) {
@@ -77,8 +66,40 @@ export function ThreeHero() {
     setIsLowPower(deviceMemory <= 4 || cores <= 4);
   }, []);
 
-  const showFallback = isMobile || isLowPower || !webglSupported;
-  const shouldRender = inView && !showFallback;
+  const allow3d = useMemo(() => {
+    return inView && webglSupported && !isMobile && !isLowPower;
+  }, [inView, webglSupported, isMobile, isLowPower]);
+
+  useEffect(() => {
+    if (!allow3d || hasAttemptedLoad) {
+      return;
+    }
+
+    let active = true;
+
+    const load = async () => {
+      try {
+        const mod = (await import('./three/ThreeHeroImpl')) as ThreeHeroModule;
+        if (active && mod.r3fAvailable) {
+          setImpl(() => mod.ThreeHeroImpl);
+        }
+      } catch {
+        if (active) {
+          setImpl(null);
+        }
+      } finally {
+        if (active) {
+          setHasAttemptedLoad(true);
+        }
+      }
+    };
+
+    void load();
+
+    return () => {
+      active = false;
+    };
+  }, [allow3d, hasAttemptedLoad]);
 
   return (
     <div
@@ -86,13 +107,7 @@ export function ThreeHero() {
       className="relative h-[260px] w-[210px] overflow-hidden rounded-[26px] border border-[rgb(var(--border))] bg-[rgb(var(--surface))]/60 shadow-soft"
       aria-hidden="true"
     >
-      {shouldRender ? (
-        <Suspense fallback={<StaticOrnament />}>
-          <ArchiveCardsScene reduceMotion={prefersReducedMotion} />
-        </Suspense>
-      ) : (
-        <StaticOrnament />
-      )}
+      {Impl ? <Impl reduceMotion={prefersReducedMotion} /> : <HeroFallbackVisual />}
     </div>
   );
 }

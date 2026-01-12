@@ -10,6 +10,7 @@ npm run dev
 ```
 
 The site runs on `http://localhost:3000/en` (English) or `http://localhost:3000/ar` (Arabic).
+The 3D hero visual is optional: if `@react-three/*` dependencies are unavailable, the site automatically falls back to a static SVG accent.
 
 ## Content editing guide
 

@@ -73,7 +73,7 @@ function ArchiveCards({ reduceMotion }: { reduceMotion: boolean }) {
     }
   }, [invalidate, reduceMotion]);
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock }: { clock: { getElapsedTime: () => number } }) => {
     if (!group.current) {
       return;
     }
