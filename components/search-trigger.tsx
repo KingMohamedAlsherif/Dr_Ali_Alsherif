@@ -10,10 +10,10 @@ export function SearchTrigger({ label }: { label: string }) {
       size="sm"
       aria-label={label}
       onClick={() => window.dispatchEvent(new CustomEvent('open-search'))}
-      className="hidden h-9 w-9 items-center justify-center rounded-full md:inline-flex"
+      className="hidden h-10 items-center justify-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface))] px-3 text-muted-foreground md:inline-flex"
       title="Ctrl + K"
     >
-      <Search className="h-4 w-4" />
+      <Search className="h-5 w-5" />
     </Button>
   );
 }

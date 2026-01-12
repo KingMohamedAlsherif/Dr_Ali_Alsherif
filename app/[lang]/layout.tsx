@@ -22,7 +22,9 @@ export default async function LangLayout({
     <div className={isArabic ? 'font-arabic' : 'font-sans'} dir={isArabic ? 'rtl' : 'ltr'} lang={params.lang}>
       <Header lang={params.lang} searchItems={searchItems} />
       <main className="pt-20 pb-12">
-        <Container>{children}</Container>
+        <Container>
+          <div className="archive-frame">{children}</div>
+        </Container>
       </main>
       <Footer lang={params.lang} />
     </div>

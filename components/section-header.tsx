@@ -22,6 +22,10 @@ export function SectionHeader({
         {title}
       </h2>
       {description && <p className="text-sm text-muted-foreground md:text-base">{description}</p>}
+      <div className={cn('catalog-divider', align === 'center' && 'mx-auto max-w-sm')} aria-hidden="true" />
+      <div className={cn('header-ornament', align === 'center' && 'mx-auto')} aria-hidden="true">
+        <span />
+      </div>
     </div>
   );
 }

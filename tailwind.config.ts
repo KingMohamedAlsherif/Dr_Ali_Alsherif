@@ -17,11 +17,14 @@ const config: Config = {
       colors: {
         background: 'rgb(var(--background))',
         foreground: 'rgb(var(--foreground))',
+        bg: 'rgb(var(--bg))',
+        surface: 'rgb(var(--surface))',
         card: 'rgb(var(--card))',
         border: 'rgb(var(--border))',
         muted: 'rgb(var(--muted))',
         'muted-foreground': 'rgb(var(--muted-foreground))',
         accent: 'rgb(var(--accent))',
+        'accent-2': 'rgb(var(--accent-2))',
         'accent-foreground': 'rgb(var(--accent-foreground))'
       },
       boxShadow: {

@@ -30,7 +30,7 @@ export function Timeline({
       {Object.entries(grouped).map(([org, roles]) => {
         const isOpen = openOrg === org;
         return (
-          <div key={org} className="rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-6">
+          <div key={org} className="index-card p-6">
             <button
               type="button"
               onClick={() => setOpenOrg(isOpen ? null : org)}
@@ -43,23 +43,22 @@ export function Timeline({
               {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
             </button>
             {isOpen && (
-              <div className="mt-6 space-y-6 border-l border-[rgb(var(--border))] pl-6">
+              <div className="timeline-rail mt-6 space-y-6">
                 {roles.map((role) => {
                   const roleKey = `${org}-${role.role}`;
                   const isExpanded = expandedRoles[roleKey] ?? false;
                   const highlights = isExpanded ? role.highlights : role.highlights.slice(0, 3);
 
                   return (
-                    <div key={roleKey} className="relative space-y-3">
-                      <span className="absolute -left-[30px] top-2 h-2.5 w-2.5 rounded-full bg-accent" />
-                      <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div key={roleKey} className="relative grid gap-4 md:grid-cols-[160px,1fr]">
+                      <span className="timeline-node" />
+                      <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground md:pt-1">
+                        {role.startDate} — {role.endDate}
+                      </div>
+                      <div className="space-y-3">
                         <div>
                           <p className="font-semibold text-foreground">{role.role}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {role.startDate} — {role.endDate}
-                          </p>
                         </div>
-                      </div>
                       <ul className="space-y-2 text-sm text-muted-foreground">
                         {highlights.map((highlight) => (
                           <li key={highlight}>{highlight}</li>
@@ -89,6 +88,7 @@ export function Timeline({
                         {role.tags.map((tag) => (
                           <Badge key={tag}>{tag}</Badge>
                         ))}
+                      </div>
                       </div>
                     </div>
                   );

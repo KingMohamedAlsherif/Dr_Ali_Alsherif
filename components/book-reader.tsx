@@ -56,7 +56,7 @@ export default function BookReader({ slug, url, watermark }: { slug: string; url
           </Button>
         </div>
       </div>
-      <div className="relative overflow-hidden rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--muted))] p-4">
+      <div className="relative overflow-hidden rounded-[26px] border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-4 shadow-soft">
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <p className="rotate-[-10deg] text-4xl font-semibold text-accent/20">
             {watermark ?? 'For reading on this site'}
