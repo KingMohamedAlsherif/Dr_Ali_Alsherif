@@ -31,7 +31,7 @@ export function PublicationsSection({ items, lang }: { items: Publication[]; lan
             key={itemType}
             type="button"
             onClick={() => setType(itemType as typeof type)}
-            className={`rounded-full border px-4 py-2 text-xs font-medium transition focus-outline ${
+            className={`rounded-full border bg-[rgb(var(--surface))] px-4 py-2 text-xs font-medium transition focus-outline ${
               type === itemType
                 ? 'border-transparent bg-accent text-accent-foreground'
                 : 'border-[rgb(var(--border))] text-muted-foreground hover:text-foreground'

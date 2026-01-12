@@ -5,7 +5,7 @@ import type { Book } from '@/lib/content-types';
 
 export function BookCard({ book, lang }: { book: Book; lang: 'en' | 'ar' }) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] transition-all hover:-translate-y-1 hover:shadow-lift">
+    <div className="group flex h-full flex-col transition-all index-card hover:-translate-y-2 hover:shadow-lift">
       <div className="relative aspect-[3/4] overflow-hidden bg-[rgb(var(--muted))]">
         <Image
           src={book.coverImage}
@@ -15,7 +15,7 @@ export function BookCard({ book, lang }: { book: Book; lang: 'en' | 'ar' }) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-1 flex-col gap-3 p-6">
+      <div className="flex flex-1 flex-col gap-3 p-6 pt-8">
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{book.publisher}</p>
           <h3 className="mt-2 text-lg font-semibold text-foreground">{book.title}</h3>

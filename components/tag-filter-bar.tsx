@@ -16,10 +16,10 @@ export function TagFilterBar({ selected, onChange }: { selected: string[]; onCha
               onChange(isActive ? selected.filter((item) => item !== tag) : [...selected, tag])
             }
             className={cn(
-              'rounded-full border px-3 py-1 text-xs transition focus-outline',
+              'rounded-full border px-3 py-1 text-xs font-medium transition focus-outline',
               isActive
                 ? 'border-transparent bg-accent text-accent-foreground'
-                : 'border-[rgb(var(--border))] text-muted-foreground hover:text-foreground'
+                : 'border-[rgb(var(--border))] bg-[rgb(var(--surface))] text-muted-foreground hover:text-foreground'
             )}
           >
             {tag}

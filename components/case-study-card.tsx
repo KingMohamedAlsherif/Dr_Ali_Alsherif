@@ -9,8 +9,8 @@ export function CaseStudyCard({ item, lang }: { item: CaseStudy; lang: 'en' | 'a
     <Link
       href={`/${lang}/projects/${item.slug}`}
       className={cn(
-        'group flex h-full flex-col overflow-hidden rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] transition-all',
-        'hover:-translate-y-1 hover:shadow-lift focus-outline'
+        'group flex h-full flex-col transition-all focus-outline index-card',
+        'hover:-translate-y-1 hover:shadow-lift'
       )}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-[rgb(var(--muted))]">
@@ -22,7 +22,7 @@ export function CaseStudyCard({ item, lang }: { item: CaseStudy; lang: 'en' | 'a
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-1 flex-col gap-4 p-6">
+      <div className="flex flex-1 flex-col gap-4 p-6 pt-8">
         <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-muted-foreground">
           <span>{item.year}</span>
           <span>{item.role}</span>

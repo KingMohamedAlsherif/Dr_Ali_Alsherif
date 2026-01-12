@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge';
 
 export function StandardsBadge({ label }: { label: string }) {
-  return <Badge className="border-accent/30 bg-transparent text-accent">{label}</Badge>;
+  return <Badge className="border-accent/50 bg-transparent text-[rgb(var(--accent-2))]">{label}</Badge>;
 }

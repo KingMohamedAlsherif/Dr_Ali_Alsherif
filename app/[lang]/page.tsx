@@ -35,8 +35,8 @@ export default async function HomePage({ params }: { params: { lang: 'en' | 'ar'
     <div>
       <SectionReveal>
         <Section className="pt-0">
-          <div className="rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-8 shadow-soft md:p-12">
-            <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
+          <div className="hero-atmosphere rounded-[26px] p-6 md:p-8">
+            <div className="grid gap-8 lg:grid-cols-[1.2fr,0.9fr,0.4fr] lg:items-center">
               <div className="space-y-6">
                 <div className="space-y-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
@@ -72,8 +72,8 @@ export default async function HomePage({ params }: { params: { lang: 'en' | 'ar'
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute -inset-4 rounded-[32px] bg-accent/10" aria-hidden="true" />
-                <div className="relative overflow-hidden rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--muted))]">
+                <div className="absolute -inset-4 rounded-[32px] bg-accent/12" aria-hidden="true" />
+                <div className="relative overflow-hidden rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--surface))]">
                   <Image
                     src="/images/ali-alsherif-placeholder.svg"
                     alt={params.lang === 'ar' ? 'صورة علي الشريف' : 'Portrait of Ali Alsherif'}
@@ -83,6 +83,14 @@ export default async function HomePage({ params }: { params: { lang: 'en' | 'ar'
                     priority
                   />
                 </div>
+              </div>
+              <div className="hidden flex-col gap-4 border-l border-[rgb(var(--border))] pl-4 lg:flex">
+                {chips.map((chip) => (
+                  <div key={chip} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                    <Badge className="bg-[rgb(var(--surface))]">{chip}</Badge>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -209,7 +217,7 @@ export default async function HomePage({ params }: { params: { lang: 'en' | 'ar'
 
       <SectionReveal>
         <Section className="pt-0">
-          <div className="rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-8 text-center shadow-soft">
+          <div className="text-center">
             <h2 className="text-2xl font-semibold">
               {params.lang === 'ar'
                 ? 'لنصمم بيئة معرفة رقمية تُحدث أثرًا.'
