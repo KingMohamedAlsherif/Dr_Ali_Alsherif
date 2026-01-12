@@ -11,7 +11,8 @@ content/books/files/*.pdf
 content/books/files/*.epub
 content/books/files/*.mobi
 
-public/images/*.jpg
-public/images/*.jpeg
-public/images/*.png
-public/images/*.webp
+# Allow image assets in public/images to be tracked and deployed
+# public/images/*.jpg
+# public/images/*.jpeg
+# public/images/*.png
+# public/images/*.webp
