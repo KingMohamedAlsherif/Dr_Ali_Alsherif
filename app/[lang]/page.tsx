@@ -10,6 +10,7 @@ import { SectionHeader } from '@/components/section-header';
 import { SectionReveal } from '@/components/section-reveal';
 import { Section } from '@/components/section';
 import { Timeline } from '@/components/timeline';
+import { ThreeHero } from '@/components/visual/ThreeHero';
 import { getBooks, getCaseStudies, getExperience, getPublications, getWorkshops } from '@/lib/content';
 
 export default async function HomePage({ params }: { params: { lang: 'en' | 'ar' } }) {
@@ -36,7 +37,10 @@ export default async function HomePage({ params }: { params: { lang: 'en' | 'ar'
       <SectionReveal>
         <Section className="pt-0">
           <div className="hero-atmosphere rounded-[26px] p-6 md:p-8">
-            <div className="grid gap-8 lg:grid-cols-[1.2fr,0.9fr,0.4fr] lg:items-center">
+            <div className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 lg:block">
+              <ThreeHero />
+            </div>
+            <div className="relative z-10 grid gap-8 lg:grid-cols-[1.2fr,0.9fr,0.4fr] lg:items-center">
               <div className="space-y-6">
                 <div className="space-y-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
