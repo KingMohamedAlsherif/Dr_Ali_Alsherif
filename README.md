@@ -12,6 +12,14 @@ npm run dev
 The site runs on `http://localhost:3000/en` (English) or `http://localhost:3000/ar` (Arabic).
 The 3D hero visual is optional: if `@react-three/*` dependencies are unavailable, the site automatically falls back to a static SVG accent.
 
+## How to build locally
+
+```bash
+npm install
+npm run build
+npm run start
+```
+
 ## Content editing guide
 
 All content lives in `/content` and is structured per language:
@@ -89,4 +97,6 @@ BOOK_ACCESS_CODE=optional-secret
 
 - Ensure the `content` directory is included in your deployment.
 - Set `BOOK_ACCESS_CODE` if you enable gated books.
-- Run `npm run build` before deploying.
+- Root directory: repository root (`.`).
+- Install command: `npm install`.
+- Build command: `npm run build`.

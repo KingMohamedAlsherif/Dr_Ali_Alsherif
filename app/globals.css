@@ -361,6 +361,16 @@
   mask: linear-gradient(180deg, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 
+.background-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 85% at 50% 18%, rgba(var(--surface), 0.08), rgba(var(--bg), 0.72) 60%, rgba(var(--bg), 0.9) 100%),
+    linear-gradient(to bottom, rgba(var(--bg), 0.8) 0px, rgba(var(--bg), 0.35) 120px, rgba(var(--bg), 0) 280px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-atmosphere::before {
     opacity: 0.6;
